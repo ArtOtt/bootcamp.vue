@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <div id="app">
+
+
+        <input v-model="newTodoName" id="input" type="text">
+        <button @click=" addTodo()">Add To-Do</button>
+
+
+
+
+        <p>{{newTodoName}}</p>
+
+        <ul>
+            <li v-model="$e.target.checked" v-for=" todo in todos" :key="todo.id">
+                {{todo.description}}
+                <input v-model="todo.done" @change="updateTodoStatus(todo)" :checked=todo.done type="checkbox"
+                    name="subscribe" value="on">
+            </li>
+        </ul>
+
+
+
+    </div>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
